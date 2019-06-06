@@ -1,0 +1,10 @@
+{% extends "shop/base.html" %}
+
+{% block title %}{{ page.title }}{% endblock %}
+
+{% block popular_products %}
+<div class="span9 popular_products">
+  <h3>{{ page.title }}</h3>
+  <p>{{ page.text|safe }}</p>
+</div>
+{% endblock %}

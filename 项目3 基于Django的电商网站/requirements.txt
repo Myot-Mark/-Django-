@@ -1,0 +1,5 @@
+django>=2.0.10
+gunicorn
+whitenoise
+lxml
+-e git://github.com/redtoad/python-amazon-product-api.git#egg=python-amazon-product-api

@@ -1,0 +1,25 @@
+{% extends "shop/base.html" %}
+
+{% block title %}Amazon Django Shop{% endblock %}
+
+{% block popular_products %}
+<div class="span9 popular_products">
+  <h3>Popular products</h3><br />
+  <ul class="thumbnails">
+    {% for product in products %}
+    <li class="span2">
+      <div class="thumbnail">
+        <div class="caption">
+          <a href="{% url 'product_page' product.category.slug product.asin %}" title="{{ product.title }}">
+            <img alt="{{ product.title }}" src="{% firstof product.medium_image 'http://placehold.it/150x150' %}" />
+            <h6>{{ product.title|truncatechars:40 }}</h6>
+          </a>
+          <a class="btn btn-mini" href="{% url 'product_page' product.category.slug product.asin %}?addtocart=1" target="_blank">Add to <i class="icon-shopping-cart"></i></a>
+          <span class="label label-info price">{{ product.price }}</span>
+        </div>
+      </div>
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+{% endblock %}
